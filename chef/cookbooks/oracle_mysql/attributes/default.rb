@@ -96,7 +96,7 @@ end
 # <> The operating system users and users properties
 # <md>attribute 'mysql/os_users/daemon/name',
 # <md>          :displayname => 'User Name of Default OS User for MySQL',
-# <md>          :description => 'User ID of the default OS user for MySQL to be configured in Linux server',
+# <md>          :description => 'User Name of the default OS user to be used to configure MySQL',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'mysql',
@@ -105,7 +105,7 @@ end
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/gid',
 # <md>          :displayname => 'Group Name of Default OS User for MySQL',
-# <md>          :description => 'Group ID of the default OS user for MySQL to be configured in Linux server',
+# <md>          :description => 'Group ID of the default OS user to be used to configure MySQL',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'mysql',
@@ -114,7 +114,7 @@ end
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/ldap_user',
 # <md>          :displayname => 'Use LDAP for Authentication',
-# <md>          :description => 'Use  LDAP to authenticate the default OS user account on Linux server',
+# <md>          :description => 'A flag which indicates whether to create the MQ USer locally, or utilise an LDAP based user.',
 # <md>          :choice => [ 'true', 'false' ],
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
@@ -124,7 +124,7 @@ end
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/home',
 # <md>          :displayname => 'Home Directory of Default OS User for MySQL',
-# <md>          :description => 'Home directory of the default OS user for MySQL to be configured in Linux server',
+# <md>          :description => 'Home directory of the default OS user to be used to configure MySQL',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => '/home/mysql',
@@ -133,7 +133,7 @@ end
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/comment',
 # <md>          :displayname => 'MySQL OS user description',
-# <md>          :description => 'MySQL OS user description',
+# <md>          :description => 'Comment associated with the MySQL OS user',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'MySQL instance owner',
@@ -172,7 +172,7 @@ default['mysql']['version'] = '5.7.17'
 # <> Oracle MySQL root password
 # <md>attribute 'mysql/root_password',
 # <md>          :displayname => 'MySQL root password',
-# <md>          :description => 'Change the password of the MySQL root user',
+# <md>          :description => 'The password for the MySQL root user',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => '',
@@ -190,7 +190,7 @@ default['mysql']['root_password'] = ''
 # <> MySQL listen port
 # <md>attribute 'mysql/config/port',
 # <md>          :displayname => 'MySQL listen port',
-# <md>          :description => 'Listening port to be configured in MySQL',
+# <md>          :description => 'Listen port to be configured in MySQL',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => '3306',
@@ -289,7 +289,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <> MySQL default database user 1 name
 # <md>attribute 'mysql/config/databases/database_1/users/user_1/name',
 # <md>          :displayname => 'First User Name to Access the Sample Database',
-# <md>          :description => 'Name of the first user which is created and allowed to access the sample database created',
+# <md>          :description => 'Name of the first user which is created and allowed to access the created sample database ',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'defaultUser',
@@ -310,7 +310,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <> MySQL default database user 2 name
 # <md>attribute 'mysql/config/databases/database_1/users/user_2/name',
 # <md>          :displayname => 'Second User Name to Access the Sample Database',
-# <md>          :description => 'Name of the second user which is created and allowed to access the sample database created',
+# <md>          :description => 'Name of the second user which is created and allowed to access the created sample database',
 # <md>          :type => 'string',
 # <md>          :required => 'recommended',
 # <md>          :default => 'defaultUser2',

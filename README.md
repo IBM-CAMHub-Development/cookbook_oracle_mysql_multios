@@ -36,7 +36,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['mysql']['config']['databases']['database_1']['users']['user_1']['name']</code></td>
-    <td>Name of the first user which is created and allowed to access the sample database created</td>
+    <td>Name of the first user which is created and allowed to access the created sample database </td>
     <td><code>defaultUser</code></td>
   </tr>
   <tr>
@@ -46,7 +46,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['mysql']['config']['databases']['database_1']['users']['user_2']['name']</code></td>
-    <td>Name of the second user which is created and allowed to access the sample database created</td>
+    <td>Name of the second user which is created and allowed to access the created sample database</td>
     <td><code>defaultUser2</code></td>
   </tr>
   <tr>
@@ -81,7 +81,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['mysql']['config']['port']</code></td>
-    <td>Listening port to be configured in MySQL</td>
+    <td>Listen port to be configured in MySQL</td>
     <td><code>3306</code></td>
   </tr>
   <tr>
@@ -96,27 +96,27 @@ Attributes
   </tr>
   <tr>
     <td><code>node['mysql']['os_users']['daemon']['comment']</code></td>
-    <td>MySQL OS user description</td>
+    <td>Comment associated with the MySQL OS user</td>
     <td><code>MySQL instance owner</code></td>
   </tr>
   <tr>
     <td><code>node['mysql']['os_users']['daemon']['gid']</code></td>
-    <td>Group ID of the default OS user for MySQL to be configured in Linux server</td>
+    <td>Group ID of the default OS user to be used to configure MySQL</td>
     <td><code>mysql</code></td>
   </tr>
   <tr>
     <td><code>node['mysql']['os_users']['daemon']['home']</code></td>
-    <td>Home directory of the default OS user for MySQL to be configured in Linux server</td>
+    <td>Home directory of the default OS user to be used to configure MySQL</td>
     <td><code>/home/mysql</code></td>
   </tr>
   <tr>
     <td><code>node['mysql']['os_users']['daemon']['ldap_user']</code></td>
-    <td>Use  LDAP to authenticate the default OS user account on Linux server</td>
+    <td>A flag which indicates whether to create the MQ USer locally, or utilise an LDAP based user.</td>
     <td><code>false</code></td>
   </tr>
   <tr>
     <td><code>node['mysql']['os_users']['daemon']['name']</code></td>
-    <td>User ID of the default OS user for MySQL to be configured in Linux server</td>
+    <td>User Name of the default OS user to be used to configure MySQL</td>
     <td><code>mysql</code></td>
   </tr>
   <tr>
@@ -126,7 +126,7 @@ Attributes
   </tr>
   <tr>
     <td><code>node['mysql']['root_password']</code></td>
-    <td>Change the password of the MySQL root user</td>
+    <td>The password for the MySQL root user</td>
     <td><code></code></td>
   </tr>
   <tr>

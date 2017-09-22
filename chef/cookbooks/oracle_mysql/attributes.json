@@ -29,7 +29,7 @@
                         "user_1": {
                             "name": {
                                 "default": "defaultUser",
-                                "description": "Name of the first user which is created and allowed to access the sample database created",
+                                "description": "Name of the first user which is created and allowed to access the created sample database ",
                                 "displayname": "First User Name to Access the Sample Database",
                                 "hidden": "false",
                                 "parm_type": "node",
@@ -54,7 +54,7 @@
                         "user_2": {
                             "name": {
                                 "default": "defaultUser2",
-                                "description": "Name of the second user which is created and allowed to access the sample database created",
+                                "description": "Name of the second user which is created and allowed to access the created sample database",
                                 "displayname": "Second User Name to Access the Sample Database",
                                 "hidden": "false",
                                 "parm_type": "node",
@@ -136,7 +136,7 @@
             },
             "port": {
                 "default": "3306",
-                "description": "Listening port to be configured in MySQL",
+                "description": "Listen port to be configured in MySQL",
                 "displayname": "MySQL listen port",
                 "hidden": "false",
                 "parm_type": "node",
@@ -180,7 +180,7 @@
             "daemon": {
                 "comment": {
                     "default": "MySQL instance owner",
-                    "description": "MySQL OS user description",
+                    "description": "Comment associated with the MySQL OS user",
                     "displayname": "MySQL OS user description",
                     "hidden": "false",
                     "parm_type": "node",
@@ -191,7 +191,7 @@
                 },
                 "gid": {
                     "default": "mysql",
-                    "description": "Group ID of the default OS user for MySQL to be configured in Linux server",
+                    "description": "Group ID of the default OS user to be used to configure MySQL",
                     "displayname": "Group Name of Default OS User for MySQL",
                     "hidden": "false",
                     "parm_type": "node",
@@ -202,7 +202,7 @@
                 },
                 "home": {
                     "default": "/home/mysql",
-                    "description": "Home directory of the default OS user for MySQL to be configured in Linux server",
+                    "description": "Home directory of the default OS user to be used to configure MySQL",
                     "displayname": "Home Directory of Default OS User for MySQL",
                     "hidden": "false",
                     "parm_type": "node",
@@ -217,7 +217,7 @@
                         "false"
                     ],
                     "default": "false",
-                    "description": "Use  LDAP to authenticate the default OS user account on Linux server",
+                    "description": "A flag which indicates whether to create the MQ USer locally, or utilise an LDAP based user.",
                     "displayname": "Use LDAP for Authentication",
                     "hidden": "false",
                     "options": [
@@ -232,7 +232,7 @@
                 },
                 "name": {
                     "default": "mysql",
-                    "description": "User ID of the default OS user for MySQL to be configured in Linux server",
+                    "description": "User Name of the default OS user to be used to configure MySQL",
                     "displayname": "User Name of Default OS User for MySQL",
                     "hidden": "false",
                     "parm_type": "node",
@@ -256,7 +256,7 @@
         },
         "root_password": {
             "default": "",
-            "description": "Change the password of the MySQL root user",
+            "description": "The password for the MySQL root user",
             "displayname": "MySQL root password",
             "hidden": "false",
             "parm_type": "node",
