@@ -40,36 +40,7 @@ when 'rhel'
   default['ibm']['evidence_zip'] = "#{node['ibm']['evidence_path']['unix']}/oracle_mysql-#{node['hostname']}-#{Time.now.strftime('%Y-%m-%d%H-%M-%S')}.tar"
   # <> The name of the log file for gathered evidence
   default['ibm']['evidence_log'] = "oracle_mysql-#{node['hostname']}-#{Time.now.strftime('%Y-%m-%d%H-%M-%S')}.log"
-  # <> Oracle MySQL service name
-  # <md>attribute 'mysql/service_name',
-  # <md>          :displayname => 'mysql_service_name',
-  # <md>          :description => 'MySQL service name',
-  # <md>          :type => 'string',
-  # <md>          :required => 'recommended',
-  # <md>          :default => 'mysqld',
-  # <md>          :selectable => 'true',
-  # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'node'
-  default['mysql']['service_name'] = 'mysqld'
 when 'debian'
-  # <> Ubuntu config
-
-  # <> Oracle MySQL service name
-  # <md>attribute 'mysql/service_name',
-  # <md>          :displayname => 'mysql_service_name',
-  # <md>          :description => 'MySQL service name',
-  # <md>          :type => 'string',
-  # <md>          :required => 'recommended',
-  # <md>          :default => 'mysqld',
-  # <md>          :selectable => 'true',
-  # <md>          :precedence_level => 'node',
-  # <md>          :parm_type => 'node'
-  default['mysql']['service_name'] =
-    if node['mysql']['install_from_repo'] == 'true'
-       'mysql'
-    else
-      'mariadb'
-    end
   # <> An absolute path to a directory that will be used to hold any temporary files created as part of the automation
   default['ibm']['temp_dir'] = '/tmp/ibm_cloud'
   # <> An absolute path to a directory that will be used to hold any persistent files created as part of the automation

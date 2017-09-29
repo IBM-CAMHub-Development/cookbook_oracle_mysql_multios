@@ -130,11 +130,6 @@ Attributes
     <td><code></code></td>
   </tr>
   <tr>
-    <td><code>node['mysql']['service_name']</code></td>
-    <td>MySQL service name</td>
-    <td><code>mysqld</code></td>
-  </tr>
-  <tr>
     <td><code>node['mysql']['version']</code></td>
     <td>MySQL Version to be installed</td>
     <td><code>5.7.17</code></td>

@@ -4,7 +4,7 @@ maintainer_email ''
 license          'Copyright IBM Corp. 2016, 2017'
 description      'Installs/Configure Oracle MySQL'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.25'
+version '0.1.28'
 supports 'ubuntu', '>= 14.04'
 supports 'RHEL', '>= 6.5'
 supports 'RHEL', '>= 7.0'
@@ -204,15 +204,6 @@ attribute 'mysql/root_password',
           :precedence_level => 'node',
           :required => 'recommended',
           :secret => 'true',
-          :selectable => 'true',
-          :type => 'string'
-attribute 'mysql/service_name',
-          :default => 'mysqld',
-          :description => 'MySQL service name',
-          :displayname => 'mysql_service_name',
-          :parm_type => 'node',
-          :precedence_level => 'node',
-          :required => 'recommended',
           :selectable => 'true',
           :type => 'string'
 attribute 'mysql/version',

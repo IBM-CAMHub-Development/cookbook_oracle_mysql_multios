@@ -266,17 +266,6 @@
             "selectable": "true",
             "type": "string"
         },
-        "service_name": {
-            "default": "mysqld",
-            "description": "MySQL service name",
-            "displayname": "mysql_service_name",
-            "hidden": "false",
-            "parm_type": "node",
-            "precedence_level": "node",
-            "required": "true",
-            "selectable": "true",
-            "type": "string"
-        },
         "version": {
             "default": "5.7.17",
             "description": "MySQL Version to be installed",

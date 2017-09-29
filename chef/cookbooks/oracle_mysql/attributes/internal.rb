@@ -42,7 +42,9 @@ when 'debian'
       force_override['mysql']['archive_names'] = {
         '5.7.17' => {
           'filename' => 'mysql-server_' + node['mysql']['version'] + '-1ubuntu14.04_amd64.deb-bundle.tar',
-          'sha256' => '134dfbbb02a8ec1d699332f1e5ec5b6867bae1469dc7e1642900f937fcee10ac'
+          'sha256' => '134dfbbb02a8ec1d699332f1e5ec5b6867bae1469dc7e1642900f937fcee10ac',
+          'binaries' => ['mysql-common_5.7.17-1ubuntu14.04_amd64.deb', 'libmysqlclient20_5.7.17-1ubuntu14.04_amd64.deb', 'libmysqlclient-dev_5.7.17-1ubuntu14.04_amd64.deb', 'mysql-community-client_5.7.17-1ubuntu14.04_amd64.deb', 'mysql-client_5.7.17-1ubuntu14.04_amd64.deb'],
+          'server' => ['mysql-community-server_5.7.17-1ubuntu14.04_amd64.deb']
         }
       }
     elsif node['platform_version'].split('.').first.to_i == 16
@@ -65,6 +67,24 @@ when 'windows'
     }
   }
 end
+
+#-------------------------------------------------------------------------------
+# MQSQL Configuration
+#-------------------------------------------------------------------------------
+
+case node['platform_family']
+when 'rhel'
+  force_override['mysql']['service_name'] = 'mysqld'
+when 'debian'
+  if node['platform'] == 'ubuntu'
+    if node['platform_version'].split('.').first.to_i == 14
+      force_override['mysql']['service_name'] = 'mysql'
+    elsif node['platform_version'].split('.').first.to_i == 16
+      force_override['mysql']['service_name'] = 'mysql'
+    end
+  end
+end
+
 
 #-------------------------------------------------------------------------------
 # Landscaper compatibility attributes
@@ -97,3 +117,5 @@ default['mysql']['vault']['encrypted_id'] = node['ibm_internal']['vault']['item'
 
 # <> self signed certificate TODO make it false
 default['ibm']['sw_repo_self_signed_cert'] = 'true'
+
+
