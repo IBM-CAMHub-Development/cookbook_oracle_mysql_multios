@@ -194,6 +194,7 @@ This recipe performs the product installation.
 
 Prerequisite recipe (prereq.rb)
 This recipe configures the operating prerequisites for the product.
+Archive names for RHEL6/7 and version separation
 
 
 ### oracle_mysql::service.rb

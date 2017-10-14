@@ -46,7 +46,8 @@
         "prereq.rb": {
             "description": [
                 "Prerequisite recipe (prereq.rb)",
-                "This recipe configures the operating prerequisites for the product."
+                "This recipe configures the operating prerequisites for the product.",
+                "Archive names for RHEL6/7 and version separation"
             ]
         },
         "service.rb": {

@@ -54,7 +54,8 @@
     "recipe[oracle_mysql::service]",
     "recipe[oracle_mysql::harden]",
     "recipe[oracle_mysql::config_mysql]",
-    "recipe[oracle_mysql::gather_evidence]"
+    "recipe[oracle_mysql::gather_evidence]",
+    "recipe[oracle_mysql::cleanup]"
   ],
   "env_run_lists": {
 

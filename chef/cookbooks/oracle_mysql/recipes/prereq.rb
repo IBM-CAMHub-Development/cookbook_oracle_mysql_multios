@@ -41,12 +41,20 @@ directory node['ibm']['expand_area'] do
   recursive true
 end
 
-# Remove MariaDb libs
-package 'mariadb-libs' do
-  action :remove
-end
-
-if node['platform_family'] == "debian"
+case node['platform_family']
+when 'rhel'
+  # <> Archive names for RHEL6/7 and version separation
+  if node['platform_version'].start_with?("7.")
+    # Remove MariaDb libs
+    package 'mariadb-libs' do
+      action :remove
+    end
+  elsif node['platform_version'].start_with?("6.")
+    package 'mysql-libs' do
+      action :remove
+    end
+  end
+when "debian"
   execute 'Update debian/ubuntu repos' do
     command "apt-get update"
   end

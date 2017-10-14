@@ -13,18 +13,6 @@ default['ibm']['sw_repo_user'] = ''
 # <> IBM sw_repo_pass
 default['ibm']['sw_repo_password'] = ''
 
-# <> Decide wether to install from Repo Server or use yum/apt repo
-# <md>attribute 'mysql/install_from_repo',
-# <md>          :displayname => 'Install MySQL from Secure Repository',
-# <md>          :description => 'Install MySQL from secure repository server or yum repo',
-# <md>          :choice => [ 'true', 'false' ],
-# <md>          :type => 'string',
-# <md>          :required => 'recommended',
-# <md>          :default => 'true',
-# <md>          :selectable => 'true',
-# <md>          :precedence_level => 'node',
-# <md>          :parm_type => 'node'
-default['mysql']['install_from_repo'] = 'true'
 
 case node['platform_family']
 when 'rhel'
@@ -63,6 +51,19 @@ when 'windows'
   # <> Oracle MySQL service name
   default['mysql']['service_name'] = 'mysqld'
 end
+
+# <> Decide wether to install from Repo Server or use yum/apt repo
+# <md>attribute 'mysql/install_from_repo',
+# <md>          :displayname => 'Install MySQL from Secure Repository',
+# <md>          :description => 'Install MySQL from secure repository server or yum repo',
+# <md>          :choice => [ 'true', 'false' ],
+# <md>          :type => 'string',
+# <md>          :required => 'recommended',
+# <md>          :default => 'true',
+# <md>          :selectable => 'true',
+# <md>          :precedence_level => 'node',
+# <md>          :parm_type => 'node'
+default['mysql']['install_from_repo'] = 'true'
 
 # <> The operating system users and users properties
 # <md>attribute 'mysql/os_users/daemon/name',

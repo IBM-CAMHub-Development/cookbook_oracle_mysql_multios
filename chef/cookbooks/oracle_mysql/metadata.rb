@@ -4,7 +4,7 @@ maintainer_email ''
 license          'Copyright IBM Corp. 2016, 2017'
 description      'Installs/Configure Oracle MySQL'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.28'
+version '0.1.30'
 supports 'ubuntu', '>= 14.04'
 supports 'RHEL', '>= 6.5'
 supports 'RHEL', '>= 7.0'
@@ -247,6 +247,7 @@ This recipe performs the product installation.
 recipe 'oracle_mysql::prereq.rb', '
 Prerequisite recipe (prereq.rb)
 This recipe configures the operating prerequisites for the product.
+Archive names for RHEL6/7 and version separation
 '
 recipe 'oracle_mysql::service.rb', '
 Service control recipe (service.rb)

@@ -7,7 +7,6 @@
 # <> Base package repo path
 force_override['mysql']['sw_repo_path'] = 'oracle/mysql/v5.7.17/base'
 
-
 # <> Oracle MySQL archive names
 
 case node['platform_family']
@@ -18,14 +17,23 @@ when 'rhel'
       '5.7.17' => {
         'filename' => 'mysql-' + node['mysql']['version'] + '-1.el7.x86_64.rpm-bundle.tar',
         'sha256' => '60780572ab75f716efb03a90ce8d3ccf42d689a3586cbb04b0b25d971fef1dd2',
-        'binaries' => ['mysql-community-common-5.7.17-1.el7.x86_64.rpm', 'mysql-community-libs-5.7.17-1.el7.x86_64.rpm', 'mysql-community-libs-compat-5.7.17-1.el7.x86_64.rpm', 'mysql-community-client-5.7.17-1.el7.x86_64.rpm', 'mysql-community-server-5.7.17-1.el7.x86_64.rpm']
+        'binaries' => ['mysql-community-common-5.7.17-1.el7.x86_64.rpm',
+                       'mysql-community-libs-5.7.17-1.el7.x86_64.rpm',
+                       'mysql-community-libs-compat-5.7.17-1.el7.x86_64.rpm',
+                       'mysql-community-client-5.7.17-1.el7.x86_64.rpm',
+                       'mysql-community-server-5.7.17-1.el7.x86_64.rpm']
       }
     }
   elsif node['platform_version'].start_with?("6.")
     force_override['mysql']['archive_names'] = {
       '5.7.17' => {
         'filename' => 'mysql-' + node['mysql']['version'] + '-1.el6.x86_64.rpm-bundle.tar',
-        'sha256' => '25dc294ded87bd92f1383b13eeb26c0f6d094e2762ff618a41b14a685727db69'
+        'sha256' => '25dc294ded87bd92f1383b13eeb26c0f6d094e2762ff618a41b14a685727db69',
+        'binaries' => ['mysql-community-common-5.7.17-1.el6.x86_64.rpm',
+                       'mysql-community-libs-5.7.17-1.el6.x86_64.rpm',
+                       'mysql-community-libs-compat-5.7.17-1.el6.x86_64.rpm',
+                       'mysql-community-client-5.7.17-1.el6.x86_64.rpm',
+                       'mysql-community-server-5.7.17-1.el6.x86_64.rpm']
       }
     }
   end
@@ -117,5 +125,3 @@ default['mysql']['vault']['encrypted_id'] = node['ibm_internal']['vault']['item'
 
 # <> self signed certificate TODO make it false
 default['ibm']['sw_repo_self_signed_cert'] = 'true'
-
-
