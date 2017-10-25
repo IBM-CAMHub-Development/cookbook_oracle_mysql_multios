@@ -4,7 +4,7 @@ maintainer_email ''
 license          'Copyright IBM Corp. 2016, 2017'
 description      'Installs/Configure Oracle MySQL'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.0.1'
+version '1.0.0'
 supports 'ubuntu', '>= 14.04'
 supports 'RHEL', '>= 6.5'
 supports 'RHEL', '>= 7.0'
