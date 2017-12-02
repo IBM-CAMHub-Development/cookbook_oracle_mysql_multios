@@ -39,12 +39,13 @@
                                 "type": "string"
                             },
                             "password": {
-                                "default": "",
-                                "description": "Password of the first user",
-                                "displayname": "First User Password to Access the Sample Database",
+                                "default": "defaultUser2",
+                                "description": "Name of the second user which is created and allowed to access the created sample database",
+                                "displayname": "Second User Name to Access the Sample Database",
                                 "hidden": "false",
                                 "parm_type": "node",
                                 "precedence_level": "node",
+                                "regex": "mysql/config/databases/database_1/users/user_2/name",
                                 "required": "true",
                                 "secret": "true",
                                 "selectable": "true",
@@ -52,17 +53,6 @@
                             }
                         },
                         "user_2": {
-                            "name": {
-                                "default": "defaultUser2",
-                                "description": "Name of the second user which is created and allowed to access the created sample database",
-                                "displayname": "Second User Name to Access the Sample Database",
-                                "hidden": "false",
-                                "parm_type": "node",
-                                "precedence_level": "node",
-                                "required": "true",
-                                "selectable": "true",
-                                "type": "string"
-                            },
                             "password": {
                                 "default": "",
                                 "description": "Password of the second user",
@@ -70,6 +60,7 @@
                                 "hidden": "false",
                                 "parm_type": "node",
                                 "precedence_level": "node",
+                                "regex": "mysql",
                                 "required": "true",
                                 "secret": "true",
                                 "selectable": "true",
@@ -261,6 +252,7 @@
             "hidden": "false",
             "parm_type": "node",
             "precedence_level": "node",
+            "regex": "mysql",
             "required": "true",
             "secret": "true",
             "selectable": "true",
