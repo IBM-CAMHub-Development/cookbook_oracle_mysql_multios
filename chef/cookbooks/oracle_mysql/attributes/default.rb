@@ -2,7 +2,7 @@
 # Cookbook Name:: oracle_mysql
 # attributes :: default
 #
-# Copyright IBM Corp. 2016, 2017
+# Copyright IBM Corp. 2016, 2018
 
 # <> The URL to the root directory of the HTTP server hosting the software installation packages i.e. http://<hostname>:<port>
 default['ibm']['sw_repo'] = ''
@@ -61,6 +61,7 @@ end
 # <md>          :required => 'recommended',
 # <md>          :default => 'true',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['install_from_repo'] = 'true'
@@ -73,6 +74,7 @@ default['mysql']['install_from_repo'] = 'true'
 # <md>          :required => 'recommended',
 # <md>          :default => 'mysql',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/gid',
@@ -82,6 +84,7 @@ default['mysql']['install_from_repo'] = 'true'
 # <md>          :required => 'recommended',
 # <md>          :default => 'mysql',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/ldap_user',
@@ -92,6 +95,7 @@ default['mysql']['install_from_repo'] = 'true'
 # <md>          :required => 'recommended',
 # <md>          :default => 'false',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/home',
@@ -101,6 +105,7 @@ default['mysql']['install_from_repo'] = 'true'
 # <md>          :required => 'recommended',
 # <md>          :default => '/home/mysql',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/comment',
@@ -110,6 +115,7 @@ default['mysql']['install_from_repo'] = 'true'
 # <md>          :required => 'recommended',
 # <md>          :default => 'MySQL instance owner',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <md>attribute 'mysql/os_users/daemon/shell',
@@ -119,6 +125,7 @@ default['mysql']['install_from_repo'] = 'true'
 # <md>          :required => 'recommended',
 # <md>          :default => '/bin/bash',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['os_users']['daemon'] = {
@@ -138,6 +145,7 @@ default['mysql']['os_users']['daemon'] = {
 # <md>          :required => 'recommended',
 # <md>          :default => '5.7.17',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['version'] = '5.7.17'
@@ -149,11 +157,12 @@ default['mysql']['version'] = '5.7.17'
 # <md>          :required => 'recommended',
 # <md>          :default => '',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'true',
-# <md>          :regex => "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$",
-# <md>          :regexdesc => "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character."
+# <md>          :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
+# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.'
 default['mysql']['root_password'] = ''
 
 
@@ -169,6 +178,7 @@ default['mysql']['root_password'] = ''
 # <md>          :required => 'recommended',
 # <md>          :default => '3306',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['port'] = '3306'
@@ -180,6 +190,7 @@ default['mysql']['config']['port'] = '3306'
 # <md>          :required => 'recommended',
 # <md>          :default => 'InnoDB',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['engine'] = 'InnoDB'
@@ -191,6 +202,7 @@ default['mysql']['config']['engine'] = 'InnoDB'
 # <md>          :required => 'recommended',
 # <md>          :default => '/var/lib/mysql',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['data_dir'] = '/var/lib/mysql'
@@ -202,6 +214,7 @@ default['mysql']['config']['data_dir'] = '/var/lib/mysql'
 # <md>          :required => 'recommended',
 # <md>          :default => '/var/run/mysqld/mysqld.pid',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['pid'] = '/var/run/mysqld/mysqld.pid'
@@ -213,6 +226,7 @@ default['mysql']['config']['pid'] = '/var/run/mysqld/mysqld.pid'
 # <md>          :required => 'recommended',
 # <md>          :default => '/var/log/mysqld.log',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['log_file'] = '/var/log/mysqld.log'
@@ -224,6 +238,7 @@ default['mysql']['config']['log_file'] = '/var/log/mysqld.log'
 # <md>          :required => 'recommended',
 # <md>          :default => '/var/run/mysqld/mysql.sock',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['socket'] = '/var/run/mysqld/mysql.sock'
@@ -235,6 +250,7 @@ default['mysql']['config']['socket'] = '/var/run/mysqld/mysql.sock'
 # <md>          :required => 'recommended',
 # <md>          :default => '16M',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['key_buffer_size'] = '16M'
@@ -246,6 +262,7 @@ default['mysql']['config']['key_buffer_size'] = '16M'
 # <md>          :required => 'recommended',
 # <md>          :default => '8M',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 default['mysql']['config']['max_allowed_packet'] = '8M'
@@ -258,6 +275,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :required => 'recommended',
 # <md>          :default => 'MyDB',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <> MySQL default database user 1 name
@@ -268,6 +286,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :required => 'recommended',
 # <md>          :default => 'defaultUser',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <> MySQL default database user 1 passwords
@@ -278,11 +297,12 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :required => 'recommended',
 # <md>          :default => '',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'true',
-# <md>          :regex => ""^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$",
-# <md>          :regexdesc => "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character."
+# <md>          :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
+# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.'
 # <> MySQL default database user 2 name
 # <md>attribute 'mysql/config/databases/database_1/users/user_2/name',
 # <md>          :displayname => 'Second User Name to Access the Sample Database',
@@ -291,6 +311,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :required => 'recommended',
 # <md>          :default => 'defaultUser2',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node'
 # <> MySQL default database user 2 passwords
@@ -301,11 +322,12 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :required => 'recommended',
 # <md>          :default => '',
 # <md>          :selectable => 'true',
+# <md>          :immutable_after_create => 'true',
 # <md>          :precedence_level => 'node',
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'true',
-# <md>          :regex => ""^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$",
-# <md>          :regexdesc => "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character."
+# <md>          :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
+# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.'
 
 default['mysql']['config']['databases'] = {
   'database_1' => {

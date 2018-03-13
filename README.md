@@ -41,6 +41,11 @@ Attributes
   </tr>
   <tr>
     <td><code>node['mysql']['config']['databases']['database_1']['users']['user_1']['password']</code></td>
+    <td>Password of the first user</td>
+    <td><code></code></td>
+  </tr>
+  <tr>
+    <td><code>node['mysql']['config']['databases']['database_1']['users']['user_2']['name']</code></td>
     <td>Name of the second user which is created and allowed to access the created sample database</td>
     <td><code>defaultUser2</code></td>
   </tr>
@@ -205,7 +210,7 @@ License and Author
 
 Author:: IBM Corp (<>)
 
-Copyright:: 2017, IBM Corp
+Copyright:: 2018, IBM Corp
 
-License:: Copyright IBM Corp. 2016, 2017
+License:: Copyright IBM Corp. 2016, 2018
 
