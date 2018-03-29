@@ -4,8 +4,9 @@ maintainer_email ''
 license          'Copyright IBM Corp. 2016, 2018'
 description      'Installs/Configure Oracle MySQL'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.0.2'
+version '1.0.3'
 supports 'ubuntu', '>= 14.04'
+supports 'ubuntu', '>= 16.04'
 supports 'RHEL', '>= 6.5'
 supports 'RHEL', '>= 7.0'
 
@@ -48,7 +49,7 @@ attribute 'mysql/config/databases/database_1/users/user_1/password',
           :parm_type => 'node',
           :precedence_level => 'node',
           :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
-          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
+          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character from supported list "$@$!%*?&".',
           :required => 'recommended',
           :secret => 'true',
           :selectable => 'true',
@@ -71,7 +72,7 @@ attribute 'mysql/config/databases/database_1/users/user_2/password',
           :parm_type => 'node',
           :precedence_level => 'node',
           :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
-          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
+          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character from supported list "$@$!%*?&".',
           :required => 'recommended',
           :secret => 'true',
           :selectable => 'true',
@@ -228,7 +229,7 @@ attribute 'mysql/root_password',
           :parm_type => 'node',
           :precedence_level => 'node',
           :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
-          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
+          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character from supported list "$@$!%*?&".',
           :required => 'recommended',
           :secret => 'true',
           :selectable => 'true',

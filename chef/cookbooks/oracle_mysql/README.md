@@ -8,7 +8,7 @@ Requirements
 
 ### Platform:
 
-* Ubuntu (>= 14.04)
+* Ubuntu (>= 16.04)
 * Rhel (>= 7.0)
 
 ### Cookbooks:

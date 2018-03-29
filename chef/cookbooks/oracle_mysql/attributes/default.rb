@@ -162,7 +162,7 @@ default['mysql']['version'] = '5.7.17'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'true',
 # <md>          :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
-# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.'
+# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character from supported list "$@$!%*?&".'
 default['mysql']['root_password'] = ''
 
 
@@ -302,7 +302,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'true',
 # <md>          :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
-# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.'
+# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character from supported list "$@$!%*?&".'
 # <> MySQL default database user 2 name
 # <md>attribute 'mysql/config/databases/database_1/users/user_2/name',
 # <md>          :displayname => 'Second User Name to Access the Sample Database',
@@ -327,7 +327,7 @@ default['mysql']['config']['max_allowed_packet'] = '8M'
 # <md>          :parm_type => 'node',
 # <md>          :secret => 'true',
 # <md>          :regex => '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}$',
-# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.'
+# <md>          :regexdesc => 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character from supported list "$@$!%*?&".'
 
 default['mysql']['config']['databases'] = {
   'database_1' => {
