@@ -2,7 +2,7 @@
 # Cookbook Name:: oracle_mysql
 # Recipe:: Mysql_helpers
 #
-# Copyright IBM Corp. 2016, 2017
+# Copyright IBM Corp. 2016, 2018
 #
 # <> Installation recipe (install.rb)
 # <> This module provides helper functions for providers and recipes.
@@ -20,11 +20,9 @@ module MysqlHelpers
       cmd = shell_out("rpm -qa | grep mysql | grep -v \"\\-mysql\\-\"")
       unless cmd.stdout.empty?
         cmd2 = shell_out!("mysql --version")
-        if (match_obj = /Distrib\s+(\d+\.\d+\.\d+)/.match(cmd2.stdout.lines[0]))
-          matched_ver = match_obj[1]
-        else
-          raise "Could not determine MySQL version or MySQL is not installed!"
-        end
+        raise "Could not determine MySQL version or MySQL is not installed!" unless (match_obj = /Distrib\s+(\d+\.\d+\.\d+)/.match(cmd2.stdout.lines[0]))
+        matched_ver = match_obj[1]
+
         return cmd2.stderr.empty? && (matched_ver == version)
       end
 
@@ -32,11 +30,8 @@ module MysqlHelpers
       cmd = shell_out("dpkg -l | grep mysql | grep -v \"\\-mysql\\-\"")
       unless cmd.stdout.empty?
         cmd2 = shell_out!("mysql --version")
-        if (match_obj = /Distrib\s+(\d+\.\d+\.\d+)/.match(cmd2.stdout.lines[0]))
-          matched_ver = match_obj[1]
-        else
-          raise "Could not determine MySQL version or MySQL is not installed!"
-        end
+        raise "Could not determine MySQL version or MySQL is not installed!" unless (match_obj = /Distrib\s+(\d+\.\d+\.\d+)/.match(cmd2.stdout.lines[0]))
+        matched_ver = match_obj[1]
         return cmd2.stderr.empty? && (matched_ver == version)
       end
     end
@@ -50,7 +45,7 @@ module MysqlHelpers
        if ChefVault::Item.vault?(bag, id)
          ChefVault::Item.load(bag, id)
        elsif node['chef-vault']['databag_fallback']
-         Chef::DataBagItem.load(bag, id)
+         data_bag_item(bag, id)
        else
          raise "Trying to load a regular data bag item #{id} from #{bag}, and databag_fallback is disabled"
        end
@@ -104,11 +99,8 @@ module MysqlHelpers
         query = "\"select user from user where user = \'"+ user + "\'\""
         cmd = shell_out(connection_query+query)
         unless cmd.stdout.empty?
-          if cmd.stdout.lines.map(&:chomp).include?(user)
-            Chef::Log.info "Found user '#{user}'."
-          else
-            raise "Could not find the requested database user on the current instance!"
-          end
+          raise "Could not find the requested database user on the current instance!" unless cmd.stdout.lines.map(&:chomp).include?(user)
+          Chef::Log.info "Found user '#{user}'."
           !cmd.stdout.empty?
         end
       when 'ubuntu'
@@ -116,11 +108,9 @@ module MysqlHelpers
         query = "\"select user from user where user = \'"+ user + "\'\""
         cmd = shell_out(connection_query+query)
         unless cmd.stdout.empty?
-          if cmd.stdout.lines.map(&:chomp).include?(user)
-            Chef::Log.info "Found user '#{user}'."
-          else
-            raise "Could not find the requested database user on the current instance!"
-          end
+          raise "Could not find the requested database user on the current instance!" unless cmd.stdout.lines.map(&:chomp).include?(user)
+          Chef::Log.info "Found user '#{user}'."
+          !cmd.stdout.empty?
           !cmd.stdout.empty?
         end
       end

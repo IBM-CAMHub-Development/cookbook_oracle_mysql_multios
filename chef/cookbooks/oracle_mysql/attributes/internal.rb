@@ -2,7 +2,7 @@
 # Cookbook Name:: db2
 # attributes :: internal
 #
-# Copyright IBM Corp. 2017, 2017
+# Copyright IBM Corp. 2017, 2018
 
 # <> Base package repo path
 force_override['mysql']['sw_repo_path'] = 'oracle/mysql/v5.7.17/base'
@@ -21,9 +21,7 @@ when 'rhel'
                        'mysql-community-libs-5.7.17-1.el7.x86_64.rpm',
                        'mysql-community-libs-compat-5.7.17-1.el7.x86_64.rpm',
                        'mysql-community-client-5.7.17-1.el7.x86_64.rpm',
-                       'mysql-community-server-5.7.17-1.el7.x86_64.rpm']
-      }
-    }
+                       'mysql-community-server-5.7.17-1.el7.x86_64.rpm'] } }
   elsif node['platform_version'].start_with?("6.")
     force_override['mysql']['archive_names'] = {
       '5.7.17' => {
@@ -33,18 +31,14 @@ when 'rhel'
                        'mysql-community-libs-5.7.17-1.el6.x86_64.rpm',
                        'mysql-community-libs-compat-5.7.17-1.el6.x86_64.rpm',
                        'mysql-community-client-5.7.17-1.el6.x86_64.rpm',
-                       'mysql-community-server-5.7.17-1.el6.x86_64.rpm']
-      }
-    }
+                       'mysql-community-server-5.7.17-1.el6.x86_64.rpm'] } }
   end
 when 'debian'
   if node['platform'] == 'debian'
     force_override['mysql']['archive_names'] = {
       '5.7.17' => {
         'filename' => 'mysql-server_' + node['mysql']['version'] + '-1debian8_amd64.deb-bundle.tar',
-        'sha256' => 'f6bed838adc89d82174c2d84e2b3479bf30fb04df5cf2f9a212ee764bc958039'
-      }
-    }
+        'sha256' => 'f6bed838adc89d82174c2d84e2b3479bf30fb04df5cf2f9a212ee764bc958039' } }
   elsif node['platform'] == 'ubuntu'
     if node['platform_version'].split('.').first.to_i == 14
       force_override['mysql']['archive_names'] = {
@@ -52,18 +46,14 @@ when 'debian'
           'filename' => 'mysql-server_' + node['mysql']['version'] + '-1ubuntu14.04_amd64.deb-bundle.tar',
           'sha256' => '134dfbbb02a8ec1d699332f1e5ec5b6867bae1469dc7e1642900f937fcee10ac',
           'binaries' => ['mysql-common_5.7.17-1ubuntu14.04_amd64.deb', 'libmysqlclient20_5.7.17-1ubuntu14.04_amd64.deb', 'libmysqlclient-dev_5.7.17-1ubuntu14.04_amd64.deb', 'mysql-community-client_5.7.17-1ubuntu14.04_amd64.deb', 'mysql-client_5.7.17-1ubuntu14.04_amd64.deb'],
-          'server' => ['mysql-community-server_5.7.17-1ubuntu14.04_amd64.deb']
-        }
-      }
+          'server' => ['mysql-community-server_5.7.17-1ubuntu14.04_amd64.deb'] } }
     elsif node['platform_version'].split('.').first.to_i == 16
       force_override['mysql']['archive_names'] = {
         '5.7.17' => {
           'filename' => 'mysql-server_' + node['mysql']['version'] + '-1ubuntu16.10_amd64.deb-bundle.tar',
           'sha256' => '75149649a1d09eb31940bdb8348f0c2027b6985cd7548893f1c4678a038b70c8',
           'binaries' => ['mysql-common_5.7.17-1ubuntu16.10_amd64.deb', 'libmysqlclient20_5.7.17-1ubuntu16.10_amd64.deb', 'libmysqlclient-dev_5.7.17-1ubuntu16.10_amd64.deb', 'libmysqlclient20_5.7.17-1ubuntu16.10_amd64.deb', 'mysql-community-client_5.7.17-1ubuntu16.10_amd64.deb', 'mysql-client_5.7.17-1ubuntu16.10_amd64.deb'],
-          'server' => ['mysql-community-server_5.7.17-1ubuntu16.10_amd64.deb']
-        }
-      }
+          'server' => ['mysql-community-server_5.7.17-1ubuntu16.10_amd64.deb'] } }
     end
   end
   force_override['mysql']['prereq_libraries'] = ['libmecab2', 'libaio1']
@@ -71,9 +61,7 @@ when 'windows'
   force_override['mysql']['archive_names'] = {
     '5.7.17' => {
       'filename' => 'mysql-' + node['mysql']['version'] + '-winx64.zip',
-      'sha256' => '53b2e9eec6d7c986444926dd59ae264d156cea21a1566d37547f3e444c0b80c8'
-    }
-  }
+      'sha256' => '53b2e9eec6d7c986444926dd59ae264d156cea21a1566d37547f3e444c0b80c8' } }
 end
 
 #-------------------------------------------------------------------------------

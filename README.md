@@ -9,7 +9,7 @@ Requirements
 ### Platform:
 
 * Ubuntu (>= 16.04)
-* Rhel (>= 7.0)
+* Redhat (>= 7.0)
 
 ### Cookbooks:
 

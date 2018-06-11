@@ -134,8 +134,7 @@ default['mysql']['os_users']['daemon'] = {
   'ldap_user' => 'false',
   'home' => '/home/mysql',
   'comment' => 'MySQL instance owner',
-  'shell' => '/bin/bash'
-}
+  'shell' => '/bin/bash' }
 
 # <> Oracle MySQL version
 # <md>attribute 'mysql/version',
@@ -336,12 +335,7 @@ default['mysql']['config']['databases'] = {
     'users' => {
       'user_1' => {
         'name' => 'defaultUser',
-        'password' => ''
-      },
+        'password' => '' },
       'user_2' => {
         'name' => 'defaultUser2',
-        'password' => ''
-      }
-    }
-  }
-}
+        'password' => '' } } } }

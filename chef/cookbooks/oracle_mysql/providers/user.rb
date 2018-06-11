@@ -1,22 +1,21 @@
+
 #
 # Cookbook Name:: oracle_mysql
-# Provider:: user
+# Resource:: user
 #
-# Copyright IBM Corp. 2017, 2017
+# Copyright IBM Corp. 2017, 2018
 #
-
 include MysqlHelpers
-use_inline_resources
 
 def user
-  if mysql_installed?(@new_resource.data_dir, @new_resource.version) && !user_exists?(@new_resource.name, @new_resource.data_dir, @new_resource.version, 'root', @new_resource.conn_password)
+  if mysql_installed?(@new_resource.data_dir, @new_resource.version) && !user_exists?(@new_resource.user_name, @new_resource.data_dir, @new_resource.version, 'root', @new_resource.conn_password)
     Chef::Log.info "MySQL is installend and the user was not previously created, proceeding with the create action."
     converge_by("Creating MySQL user...") do
       connection_query = "mysql -u root mysql -p\'#{@new_resource.conn_password}\' -e "
       if @new_resource.password.length == 41
-        create_user_query = "\"create user \'" + @new_resource.name + "\'@\'localhost\' identified by password \'" + @new_resource.password + "\'\""
+        create_user_query = "\"create user \'" + @new_resource.user_name + "\'@\'localhost\' identified by password \'" + @new_resource.password + "\'\""
       elsif @new_resource.password.length < 41
-        create_user_query = "\"create user \'" + @new_resource.name + "\'@'localhost\' identified by \'" + @new_resource.password + "\'\""
+        create_user_query = "\"create user \'" + @new_resource.user_name + "\'@'localhost\' identified by \'" + @new_resource.password + "\'\""
       end
       createuser_cmd = shell_out!(connection_query+create_user_query)
 

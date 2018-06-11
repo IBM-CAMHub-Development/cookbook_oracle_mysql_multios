@@ -2,7 +2,7 @@
 # Cookbook Name:: oracle_mysql
 # Recipe:: install
 #
-# Copyright IBM Corp. 2016, 2017
+# Copyright IBM Corp. 2016, 2018
 #
 # <> Installation recipe (install.rb)
 # <> This recipe performs the product installation.
@@ -55,6 +55,4 @@ when 'debian'
       end
     end
   end
-when 'windows'
-
 end

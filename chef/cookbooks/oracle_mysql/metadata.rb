@@ -2,13 +2,16 @@ name             'oracle_mysql'
 maintainer       'IBM Corp'
 maintainer_email ''
 license          'Copyright IBM Corp. 2016, 2018'
+issues_url   'https://github.com/IBM-CAMHub-Open/cookbook_oracle_mysql_multios/issues'
+source_url   'https://github.com/IBM-CAMHub-Open/cookbook_oracle_mysql_multios'
+chef_version '>= 12.5' if respond_to?(:chef_version)
 description      'Installs/Configure Oracle MySQL'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.0.3'
+version '2.0.0'
 supports 'ubuntu', '>= 14.04'
 supports 'ubuntu', '>= 16.04'
-supports 'RHEL', '>= 6.5'
-supports 'RHEL', '>= 7.0'
+supports 'redhat', '>= 6.5'
+supports 'redhat', '>= 7.0'
 
 depends 'ibm_cloud_utils'
 attribute 'mysql/config/data_dir',

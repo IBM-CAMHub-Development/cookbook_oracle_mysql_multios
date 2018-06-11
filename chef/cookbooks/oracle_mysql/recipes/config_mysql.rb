@@ -2,7 +2,7 @@
 # Cookbook Name:: oracle_mysql
 # Recipe:: config_mysql
 #
-# Copyright IBM Corp. 2016, 2017
+# Copyright IBM Corp. 2016, 2018
 #
 # <> Installation recipe (install.rb)
 # <> This recipe performs the product installation.
@@ -33,7 +33,7 @@ end
 node['mysql']['config']['databases'].each_pair do |_key, database|
   oracle_mysql_database database['database_name'] do
     action :create
-    name database['database_name']
+    db_name database['database_name']
     conn_password root_password
     data_dir node['mysql']['config']['data_dir']
     version node['mysql']['version']
@@ -45,7 +45,7 @@ node['mysql']['config']['databases'].each_pair do |_key, database|
   database['users'].each_pair do |_key, user|
     oracle_mysql_user user['name'] do
       action :create
-      name user['name']
+      user_name user['name']
       password user_data[user['name']]
       conn_password root_password
       data_dir node['mysql']['config']['data_dir']
